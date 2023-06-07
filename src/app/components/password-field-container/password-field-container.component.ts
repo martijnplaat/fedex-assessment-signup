@@ -37,6 +37,8 @@ export class PasswordFieldContainerComponent {
   private destroy$ = new Subject();
 
   public ngOnDestroy() {
+    this.firstName$.unsubscribe();
+    this.lastName$.unsubscribe();
     this.destroy$.next(true);
     this.destroy$.complete();
   }
@@ -45,7 +47,7 @@ export class PasswordFieldContainerComponent {
     this.passwordGroup = this.rootFormGroup.control.get(
       'passwordGroup'
     ) as FormGroup;
-
+    
     this.rootFormGroup.control
       .get('firstName')
       ?.valueChanges.pipe(takeUntil(this.destroy$))
