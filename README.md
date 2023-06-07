@@ -12,6 +12,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - The password-field component is also a standalone form control and we use `NG_VALUE_ACCESSOR` to integrate with the parent form.
 - Two separate services; a `signup-api.service` that is responsible for submitting the signup form and `signup-validation.service` that is responsible for validating the form fields.
 - For now we have one route after finishing the signup. Based on query params we either show a succes page or a failed page.
+- Password is send in plaintext. Sending a password as a hash value to the back-end is also considered as a bad practice. Because the connection is based on HTTPS this solution is secure enough for now.
 - All text in this signup form is translated with the `ngx-translate` library and only one language is supported.
 - The styling of this form is done with TailwindCSS
 

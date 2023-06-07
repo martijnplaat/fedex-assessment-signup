@@ -53,9 +53,10 @@ export class SignupFormComponent {
 
     if (this.signupForm.valid) {
       const user: User = {
-        firstName: 'john',
-        lastName: 'west',
-        email: 'john@west.com',
+        firstName: this.firstNameControl?.value,
+        lastName: this.lastNameControl?.value,
+        email: this.emailControl?.value,
+        password: this.signupForm.get('passwordGroup')?.get('password')?.value
       };
 
       this.loading = true;
