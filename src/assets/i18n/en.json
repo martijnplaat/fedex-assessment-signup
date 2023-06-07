@@ -1,0 +1,19 @@
+{
+  "firstName": "First name",
+  "lastName": "Last name",
+  "requiredField": "Please fill out this field.",
+  "maxlengthPassword": "Should be a minimum of eight characters",
+  "upperCaseLowerCaseInPassword": "Should contain lower and uppercase letters",
+  "firstNameOrlastNameInPassword": "Should not contain user's first or lastname",
+  "passwordContainsName": "This name exists also in your password",
+  "validEmailField": "Please enter a valid email address",
+  "emailAddress": "Email",
+  "password": "Password",
+  "repeatPassword": "Repeat password",
+  "passwordsDoesNotMatch": "Passwords does not match",
+  "registrationDoneTitle": "Welcome {{firstName}},",
+  "registrationDoneMessage": "You can now login and start using your account.",
+  "registrationFailedTitle": "Something went wrong",
+  "registrationFailedMessage": "Your registration failed, please try again later.",
+  "signUp": "Sign Up!"
+}

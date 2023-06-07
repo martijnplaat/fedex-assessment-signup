@@ -1,0 +1,18 @@
+<div class="mt-8 max-w-sm rounded overflow-hidden shadow-lg">
+    <div role="alert" *ngIf="!!error; else success">
+        <div id="registration-failed-title" class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+            {{ 'registrationFailedTitle' | translate }}
+        </div>
+        <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+            <p id="registration-failed-message">{{ 'registrationFailedMessage' | translate }}</p>
+        </div>
+    </div>
+
+    <ng-template #success>
+        <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
+            <p id="registration-done-title" class="font-bold">{{ 'registrationDoneTitle' | translate: { firstName } }}
+            </p>
+            <p id="registration-done-message" class="text-sm">{{ 'registrationDoneMessage' | translate }}</p>
+        </div>
+    </ng-template>
+</div>

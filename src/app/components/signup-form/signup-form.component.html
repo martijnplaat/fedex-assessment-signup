@@ -1,0 +1,60 @@
+<form id="fedex-signupform" class="w-full max-w-lg mt-6" [formGroup]="signupForm" (keydown.enter)="onSubmit()"
+  (ngSubmit)="onSubmit()" *ngIf="!loading; else loadingSpinner">
+  <div class="flex flex-wrap mb-6">
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0 relative">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="fedex-first-name">
+        {{ 'firstName' | translate }}
+      </label>
+      <input formControlName="firstName"
+        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-2 leading-tight focus:outline-none focus:bg-white focus:border-fedex-blue-500"
+        id="fedex-first-name" type="text" placeholder="Michael">
+      <p id="firstname-required"
+        *ngIf="(firstNameControl?.touched || formSubmitted) && firstNameControl?.errors?.required"
+        class="absolute text-fedex-red-500 text-xs italic">{{ 'requiredField' | translate }}</p>
+    </div>
+    <div class="w-full md:w-1/2 px-3 relative">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="fedex-last-name">
+        {{ 'lastName' | translate }}
+      </label>
+      <input formControlName="lastName"
+        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-2 leading-tight focus:outline-none focus:bg-white focus:border-fedex-blue-500"
+        id="fedex-last-name" type="text" placeholder="Jordan">
+      <p id="lastname-required" *ngIf="(lastNameControl?.touched || formSubmitted) && lastNameControl?.errors?.required"
+        class="absolute text-fedex-red-500 text-xs italic">{{ 'requiredField' | translate }}</p>
+    </div>
+  </div>
+  <div class="flex flex-col mb-6">
+    <div class="w-full mb-6 px-3 relative">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="fedex-email">
+        {{ 'Email' | translate }}
+      </label>
+      <input formControlName="email"
+        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-2 leading-tight focus:outline-none focus:bg-white focus:border-fedex-blue-500"
+        id="fedex-email" type="text" placeholder="yourname@fedex.com">
+      <p id="email-validity"
+        *ngIf="(emailControl?.touched || formSubmitted) && (emailControl?.errors?.email || emailControl?.errors?.required)"
+        class="absolute text-fedex-red-500 text-xs italic">{{ 'validEmailField' | translate }}</p>
+    </div>
+    <app-password-field-container class="w-full" [formSubmitted]="formSubmitted">
+    </app-password-field-container>
+  </div>
+  <div class="flex w-full px-3 flex-col items-center">
+    <button
+      class="shadow bg-fedex-blue-500 hover:bg-fedex-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+      type="submit">
+      {{ 'signUp' | translate }}
+    </button>
+  </div>
+</form>
+
+<ng-template #loadingSpinner>
+  <div id="loading-spinner" class="mt-6">
+    <div
+      class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+      role="status">
+      <span
+        class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+    </div>
+  </div>
+
+</ng-template>
